@@ -1,0 +1,13 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/article.js": "/js/article.js",
+    "/js/article-detail.js": "/js/article-detail.js",
+    "/js/category-article.js": "/js/category-article.js",
+    "/js/client.js": "/js/client.js",
+    "/js/common.js": "/js/common.js",
+    "/js/dashboard.js": "/js/dashboard.js",
+    "/js/footer.js": "/js/footer.js",
+    "/js/header.js": "/js/header.js",
+    "/js/home.js": "/js/home.js"
+}

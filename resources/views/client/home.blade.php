@@ -84,47 +84,11 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
             </div>
             <div class="owl-carousel owl-theme" id="slider2">
-                <!-- <div class="item px-2" v-for="item in arrArticlesHotNew">
+                <div class="item px-2" v-for="item in arrArticlesHotNew">
                     <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img :src="item.__link_image" :alt="item.slug" :title="item.title" /></div>
+                        <div class="fh5co_news_img"><img :src="item.__link_image" :alt="item.title" :title="item.title" /></div>
                         <div>
-                            <a :href="item.__link_deatail" class="d-block fh5co_small_post_heading"><span class=""> @{{item.title}} </span></a>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="{{ asset('client/images/joe-gardner-75333.jpg')}}" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="{{ asset('client/images/joe-gardner-75333.jpg')}}" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="{{ asset('client/images/ryan-moreno-98837.jpg')}}" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="{{ asset('client/images/seth-doyle-133175.jpg')}}" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">The top 10 best computer speakers in the market</span></a>
+                            <a :href="item.__link_deatail" class="d-block fh5co_small_post_heading"><span class=""> @{{ item.title }}</span></a>
                             <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2017</div>
                         </div>
                     </div>
@@ -135,7 +99,7 @@
     <div class="container-fluid fh5co_video_news_bg pb-4">
         <div class="container animate-box" data-animate-effect="fadeIn">
             <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom pt-5 pb-2 mb-4  text-white">Video News</div>
+                <div class="fh5co_heading fh5co_heading_border_bottom pt-5 pb-2 mb-4">Video News</div>
             </div>
             <div>
                 <div class="owl-carousel owl-theme" id="slider3">

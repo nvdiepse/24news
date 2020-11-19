@@ -106,7 +106,6 @@ let vue = new Vue({
                         this.arrErrors = [];
                     })
                     .catch(error  => {
-                        console.log(error);
                         this.arrErrors = error.response.data.errors;
                         $('#modal_article').modal('hide');
                     })
@@ -136,13 +135,6 @@ let vue = new Vue({
 
                 })
         },
-        
-        setContent() {
-            console.log('111111');
-            // this.article.content  = e.target.value;
-            // console.log(this.article);
-        },
-
         getSlug() {
             return this.article.slug = Common.getSlug(this.article.title);
         },

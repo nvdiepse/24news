@@ -13,6 +13,7 @@ let vue = new Vue({
         arrArticlesTrending: [],
         arrArticlesHotNew: [],
         arrArticlesMostPopular: [],
+        arrVideoReview: [],
         arrTags: [],
         arrCategories: [],
         loading: false,
@@ -30,12 +31,37 @@ let vue = new Vue({
         this.getTags();
         this.getArticlesMostPopular();
         this.getCategories();
+        this.getVideoReview();
     },
-    mounted() {
-
-    },
-
     methods: {
+        getVideoReview() {
+            axios.get('/article/get-article-trendding')
+                .then(res => {
+                    this.arrVideoReview = res.data.data;
+                    // return;
+                    this.$nextTick(() => {
+                        $('#slider3').owlCarousel({
+                            loop: false,
+                            margin: 10,
+                            dots: false,
+                            nav: true,
+                            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                600: {
+                                    items: 3
+                                },
+                                1000: {
+                                    items: 4
+                                }
+                            }
+                        });
+                    })
+                })
+        },
+
         getArticlesTrending() {
             axios.get('/article/get-article-trendding')
                 .then(res => {
@@ -60,57 +86,38 @@ let vue = new Vue({
                                 }
                             }
                         });
-
-
-                        // $('#slider2').owlCarousel({
-                        //     loop: false,
-                        //     margin: 10,
-                        //     dots: false,
-                        //     nav: true,
-                        //     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                        //     responsive: {
-                        //         0: {
-                        //             items: 1
-                        //         },
-                        //         600: {
-                        //             items: 2
-                        //         },
-                        //         1000: {
-                        //             items: 3
-                        //         }
-                        //     }
-                        // });
-
-                        // $('#slider3').owlCarousel({
-                        //     loop: false,
-                        //     margin: 10,
-                        //     dots: false,
-                        //     nav: true,
-                        //     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                        //     responsive: {
-                        //         0: {
-                        //             items: 1
-                        //         },
-                        //         600: {
-                        //             items: 2
-                        //         },
-                        //         1000: {
-                        //             items: 3
-                        //         }
-                        //     }
-                        // });
                     })
                 })
         },
         getArticlesHotNew() {
             axios.get('/article/get-article-hot-new', {
-                    params: {
-                        page: this.currentPage
-                    }
-                })
+                params: {
+                    page: this.currentPage
+                }
+            })
                 .then(res => {
                     this.arrArticlesHotNew = res.data.data;
                     this.responseData = res.data;
+                    this.$nextTick(() => {
+                        $('#slider2').owlCarousel({
+                            loop: false,
+                            margin: 10,
+                            dots: false,
+                            nav: true,
+                            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                600: {
+                                    items: 2
+                                },
+                                1000: {
+                                    items: 3
+                                }
+                            }
+                        });
+                    })
                 })
         },
         getArticlesMostPopular() {

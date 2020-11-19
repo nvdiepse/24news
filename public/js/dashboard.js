@@ -14493,17 +14493,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#dashboard',
-  component: {
-    FullCalendar: FullCalendar,
-    interactionPlugin: interactionPlugin,
-    dayGridPlugin: dayGridPlugin
-  },
-  data: {
-    calendarOptions: {
-      plugins: [dayGridPlugin, interactionPlugin],
-      initialView: 'dayGridMonth'
-    }
-  },
+  component: {},
+  data: {},
   created: function created() {},
   methods: {}
 });

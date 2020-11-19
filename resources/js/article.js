@@ -43,7 +43,15 @@ let vue = new Vue({
     },
     created() {
         this.getArticles();
+
+        this.$nextTick(() => {
+            CKEDITOR.replace( 'ckeditor' );
+            CKEDITOR.instances.ckeditor.on('change', () => { 
+                this.article.content = CKEDITOR.instances.ckeditor.getData();
+            });
+        });
     },
+
     methods: {
         create() {
             $('#modal_article').modal('show');
@@ -59,8 +67,6 @@ let vue = new Vue({
                     $('#modal_article').modal('show');
                 })
         },
-        
-        
         deleteById(item) {
             let msg = confirm('Are you sure delete item?');
 
@@ -91,19 +97,19 @@ let vue = new Vue({
             if (this.article.id) {
 
             } else {
-                console.log(this.article);
-                // let link = '/admin/articles/store'
-                // axios.post(link,this.article)
-                //     .then(res => {
-                //         Common.alertSuccess('Create', 'Create success.');
-                //         $('#modal_article').modal('hide');
-                //         this.arrErrors = [];
-                //         this.geta
-                //     })
-                //     .catch(err => {
-                //         this.arrErrors = error.response.data.errors;
-                //         $('#modal_article').modal('hide');
-                //     })
+                let link = '/admin/articles/store'
+                axios.post(link,this.article)
+                    .then(res => {
+                        this.getArticles();
+                        $('#modal_article').modal('hide');
+                        Common.alertSuccess('Create', 'Create success.');
+                        this.arrErrors = [];
+                    })
+                    .catch(error  => {
+                        console.log(error);
+                        this.arrErrors = error.response.data.errors;
+                        $('#modal_article').modal('hide');
+                    })
             }
         },
         change({canvas}) {
@@ -131,9 +137,15 @@ let vue = new Vue({
                 })
         },
         
+        setContent() {
+            console.log('111111');
+            // this.article.content  = e.target.value;
+            // console.log(this.article);
+        },
+
         getSlug() {
-                return this.article.slug = Common.getSlug(this.article.title);
-            },
+            return this.article.slug = Common.getSlug(this.article.title);
+        },
 
         getArticles() {
             let link = '/admin/articles/get-article';

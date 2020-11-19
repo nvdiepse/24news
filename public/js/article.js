@@ -36127,7 +36127,15 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     currentPage: 1
   },
   created: function created() {
+    var _this = this;
+
     this.getArticles();
+    this.$nextTick(function () {
+      CKEDITOR.replace('ckeditor');
+      CKEDITOR.instances.ckeditor.on('change', function () {
+        _this.article.content = CKEDITOR.instances.ckeditor.getData();
+      });
+    });
   },
   methods: {
     create: function create() {
@@ -36135,24 +36143,24 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.clear();
     },
     findById: function findById(item) {
-      var _this = this;
+      var _this2 = this;
 
       var link = '/admin/articles/find-by-id/' + item;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(link).then(function (res) {
-        _this.article = res.data;
-        _this.default_image = res.data.__link_image;
+        _this2.article = res.data;
+        _this2.default_image = res.data.__link_image;
         $('#modal_article').modal('show');
       });
     },
     deleteById: function deleteById(item) {
-      var _this2 = this;
+      var _this3 = this;
 
       var msg = confirm('Are you sure delete item?');
 
       if (msg == true) {
         var link = '/admin/articles/delete-by-id/' + item;
         axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(link).then(function (res) {
-          _this2.getArticles();
+          _this3.getArticles();
 
           _js_common__WEBPACK_IMPORTED_MODULE_2__["default"].alertSuccess('Success', 'Delete success');
         });
@@ -36173,19 +36181,21 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.article.meta_title = '';
     },
     submit: function submit() {
+      var _this4 = this;
+
       if (this.article.id) {} else {
-        console.log(this.article); // let link = '/admin/articles/store'
-        // axios.post(link,this.article)
-        //     .then(res => {
-        //         Common.alertSuccess('Create', 'Create success.');
-        //         $('#modal_article').modal('hide');
-        //         this.arrErrors = [];
-        //         this.geta
-        //     })
-        //     .catch(err => {
-        //         this.arrErrors = error.response.data.errors;
-        //         $('#modal_article').modal('hide');
-        //     })
+        var link = '/admin/articles/store';
+        axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(link, this.article).then(function (res) {
+          _this4.getArticles();
+
+          $('#modal_article').modal('hide');
+          _js_common__WEBPACK_IMPORTED_MODULE_2__["default"].alertSuccess('Create', 'Create success.');
+          _this4.arrErrors = [];
+        })["catch"](function (error) {
+          console.log(error);
+          _this4.arrErrors = error.response.data.errors;
+          $('#modal_article').modal('hide');
+        });
       }
     },
     change: function change(_ref) {
@@ -36197,26 +36207,30 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this.url = URL.createObjectURL(file);
     },
     getCategory: function getCategory() {
-      var _this3 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/admin/articles/get-category').then(function (res) {
-        _this3.arrCategories = res.data.data;
+        _this5.arrCategories = res.data.data;
       });
     },
     findBySlug: function findBySlug(slug) {
-      var _this4 = this;
+      var _this6 = this;
 
       var link = '/admin/articles/find-by-slug/' + slug;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(link).then(function (res) {
-        _this4.article = res.data;
+        _this6.article = res.data;
         $('#modal_article_deltail').modal('show');
       })["catch"](function (err) {});
+    },
+    setContent: function setContent() {
+      console.log('111111'); // this.article.content  = e.target.value;
+      // console.log(this.article);
     },
     getSlug: function getSlug() {
       return this.article.slug = _js_common__WEBPACK_IMPORTED_MODULE_2__["default"].getSlug(this.article.title);
     },
     getArticles: function getArticles() {
-      var _this5 = this;
+      var _this7 = this;
 
       var link = '/admin/articles/get-article';
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(link, {
@@ -36226,13 +36240,13 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           page: this.currentPage
         }
       }).then(function (res) {
-        _this5.loading = false;
-        _this5.responseData = res.data;
-        _this5.arrArticles = res.data.data;
+        _this7.loading = false;
+        _this7.responseData = res.data;
+        _this7.arrArticles = res.data.data;
 
-        _this5.getNumberStart();
+        _this7.getNumberStart();
 
-        _this5.getCount();
+        _this7.getCount();
       })["catch"](function (error) {
         console.log(error);
       });
@@ -36247,7 +36261,7 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       return this.limit * this.currentPage - this.limit;
     },
     getCount: function getCount() {
-      var _this6 = this;
+      var _this8 = this;
 
       var link = '/admin/articles/get-count';
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(link, {
@@ -36257,7 +36271,7 @@ var vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           page: this.currentPage
         }
       }).then(function (res) {
-        _this6.count = res.data;
+        _this8.count = res.data;
       });
     }
   }

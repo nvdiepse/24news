@@ -126,7 +126,7 @@ class ArticleController extends Controller
             report($e);
             return [
                 'code' => '500',
-                'msg' => __('msg.500')
+                'msg' => dd($e)
             ];
         }
     }
@@ -143,7 +143,9 @@ class ArticleController extends Controller
         if (!$checkDirectory) {
             $storage->makeDirectory($folder);
         }
+
         $storage->put($folder . '/' . $fileName, base64_decode($content), 'public');
+
         return $fileName;
     }
 

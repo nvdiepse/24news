@@ -65,70 +65,13 @@
                 <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
             </div>
             <div class="owl-carousel owl-theme js" id="slider1">
-                <!-- <div class="item px-2">
+                <div class="item px-2" v-for="item in arrArticlesTrending">
                     <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="{{ asset('client/images/allef-vinicius-108153.jpg')}}" alt="" class="fh5co_img_special_relative" /></div>
+                        <div class="fh5co_latest_trading_img"><img :src="item.__link_image" :alt="item.title" :title="item.title" class="fh5co_img_special_relative" /></div>
                         <div class="fh5co_latest_trading_img_position_absolute"></div>
                         <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="{{ asset('client/images/abigail-keenan-65477.jpg')}}" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="{{ asset('client/images/ryan-moreno-98837.jpg')}}" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="{{ asset('client/images/science-578x362.jpg')}}" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Here's a new way to take better photos for instagram </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Walter Johson - March 7,2017</div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="slide" v-for="item in arrArticlesTrending">
-                    <div class="owl-stage-outer">
-                        <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 280px;">
-                            <div class="owl-item active" style="width: 270px; margin-right: 10px;">
-                                <div class="item px-2">
-                                    <div class="fh5co_latest_trading_img_position_relative">
-                                        <div class="fh5co_latest_trading_img">
-                                            <img :src="item.__link_image" :alt="item.title" :title="item.title" class="fh5co_img_special_relative">
-                                        </div>
-                                        <div class="fh5co_latest_trading_img_position_absolute">
-
-                                        </div>
-                                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                                            <a :href="item.__link_deatail" class="text-white">
-                                                @{{ item.title }}
-                                            </a>
-                                            <div class="fh5co_latest_trading_date_and_name_color">
-                                                @{{ item.author }} - March 7,2017
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a :href="item.__link_deatail" class="text-white"> @{{ item.title }} </a>
+                            <div class="fh5co_latest_trading_date_and_name_color"> @{{ item.__user_name }} - March 7,2017</div>
                         </div>
                     </div>
                 </div>

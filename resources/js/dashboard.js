@@ -6,15 +6,9 @@ import Common from './common';
 let vue = new Vue({
     el: '#dashboard',
     component: {
-        FullCalendar,
-        interactionPlugin,
-        dayGridPlugin
     },
     data: {
-        calendarOptions: {
-            plugins: [ dayGridPlugin, interactionPlugin ],
-            initialView: 'dayGridMonth'
-        }
+       
     },
     created() {
 

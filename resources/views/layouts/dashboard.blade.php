@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tcwatch.net - Hệ thống điện thoại chính hãng uy tín - giá tốt.</title>
+    <title>24News</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin/asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">

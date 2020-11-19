@@ -77,7 +77,7 @@
                                                 aspectRatio: 3/2
                                             }" @change="change"></cropper>
                                         <img class="image_preview img-thumbnail" v-else :src="default_image" alt="...">
-                                        <input type="file" @change="getImageUpload($event)" accept="image/png,image/jpeg,image/jpg">
+                                        <input type="file" @blur="getImageUpload($event)" accept="image/png,image/jpeg,image/jpg">
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="slug-categoty" class="col-form-label">Content(*):</label>
-                                <textarea v-model="article.content" id="" cols="30" rows="10"></textarea>
+                                <textarea id="ckeditor" style="height: 300px;"></textarea>
                                 <p v-if="arrErrors.content">
                                     <span class="text-danger" v-for="item in arrErrors.content">* @{{ item }}</span>
                                 </p>
@@ -191,8 +191,8 @@
                                             <span class="pointer"><i class="fa fa-pencil-square-o" aria-hidden="true" @click="findById(item.id)"></i></span>
                                             <span class="pointer"><i class="fa fa-trash" aria-hidden="true" @click="deleteById(item.id)"></i></span>
                                         </td>
-                                        <td>
-                                            <img :src="item.__link_image" class="img-thumbnail" :alt="item.title" title="">
+                                        <td style="width: 100px;"> 
+                                            <img :src="item.__link_image" class="img-thumbnail" :alt="item.title" :title="item.title" width="100%">
                                         </td>
                                         <td>
                                             <a @click="findBySlug(item.slug)" style="cursor: pointer">
@@ -223,5 +223,6 @@
 </div>
 @endsection
 @section('js')
+    <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ mix('js/article.js') }}"></script>
 @endsection

@@ -63,7 +63,7 @@ class ArticleRepo
        
         $query->select('news.*', 'users.name as __user_name','category_article.title as __category_title');
         $query->orderBy('news.id', 'desc');
-        return $query->paginate(1);
+        return $query->paginate(10);
     }
 
     public function getArticlesHotNew()
@@ -74,7 +74,7 @@ class ArticleRepo
        
         $query->select('news.*', 'users.name as __user_name','category_article.title as __category_title');
         $query->orderBy('news.id', 'desc');
-        return $query->paginate(1);
+        return $query->paginate(10);
     }
     public function getArticlesMostPopular()
     {
@@ -84,6 +84,6 @@ class ArticleRepo
        
         $query->select('news.*', 'users.name as __user_name','category_article.title as __category_title');
         $query->orderBy('news.id', 'desc');
-        return $query->paginate(1);
+        return $query->paginate(10);
     }
 }

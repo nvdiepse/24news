@@ -1,3 +1,55 @@
+@section('title')
+{{ $title }}
+@endsection
+
+@section('keywords')
+{{ $keywords }}
+@endsection
+
+@section('description')
+{{ $description }}
+@endsection
+
+@section('robots')
+{{ $robots }}
+@endsection
+
+@section('author')
+{{ $author }}
+@endsection
+
+@section('url')
+{{ $url }}
+@endsection
+
+@section('og_image')
+{{ $og_image }}
+@endsection
+
+@section('og_description')
+{{ $og_description }}
+@endsection
+
+@section('og_type”')
+{{ $og_type” }}
+@endsection
+
+@section('og_locale')
+{{ $og_locale }}
+@endsection
+
+@section('og_sitename')
+{{ $og_sitename }}
+@endsection
+
+@section('og_image')
+{{ $og_image }}
+@endsection
+
+@section('og_url')
+{{ $og_url }}
+@endsection
+
 @extends('layouts.client')
 
 @section('content')

@@ -21,7 +21,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin','middware'=>'auth'], f
         Route::post('/store','CategoryArticleController@store')->name('category-article.store');
         Route::get('/index','CategoryArticleController@index')->name('category-article');
         Route::get('/get-category-article','CategoryArticleController@getCategoryArticle')->name('category-article.get-category-article');
-        Route::get('/get-count-record','BrandController@getCountBrand')->name('brand.get-count-record');
+        // Route::get('/get-count-record','CategoryArticleController@getCountBrand')->name('category.get-count-record');
+        Route::get('/get-data-tree','CategoryArticleController@getDataTree')->name('category.get-data-tree');
     });
 
     Route::group(['prefix' => 'articles'], function(){

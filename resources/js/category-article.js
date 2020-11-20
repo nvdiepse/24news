@@ -14,8 +14,10 @@ let vue = new Vue({
             title: '',
             id: '',
             slug: '',
+            parent_id : '1'
         },
         arrCategories: [],
+        arrCategorieTreess : [],
         loading: false,
         responseData: {
             last_page: 0,
@@ -25,6 +27,7 @@ let vue = new Vue({
     },
     created() {
         this.getCategoryArticle();
+        this.getCategoryArticleTree();
     },
 
     methods: {
@@ -106,6 +109,15 @@ let vue = new Vue({
                     this.getCountRecord();
                 })
         },
+
+        getCategoryArticleTree() {
+            let link = '/admin/category-article/get-data-tree';
+            axios.get(link)
+                .then(res => {
+                    this.arrCategorieTrees = res.data;
+                })
+        },
+
         getCountRecord() {
             let link = '/admin/category-article/get-count-record';
             axios.get(link,{

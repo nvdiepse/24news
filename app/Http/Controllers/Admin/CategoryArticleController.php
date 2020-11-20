@@ -26,11 +26,36 @@ class CategoryArticleController extends Controller
 
     public function getCategoryArticle(Request $request)
     {
-        $data = [
-            'txtSearch' => $request->get('txtSearch'),
-            'limit' => $request->get('limit'),
-        ];
-        return $this->categoryArticleRepo->getAll($data);
+        try {
+            $data = [
+                'txtSearch' => $request->get('txtSearch'),
+                'limit' => $request->get('limit'),
+            ];
+            return $this->categoryArticleRepo->getAll($data);
+        } catch (Exception $e) {
+            report($e);
+            return [
+                'code' => '500',
+                'msg' => dd($e)
+            ];
+        }
+    }
+
+    public function getDataTree(Request $request) 
+    {
+        try {
+            $data = [
+                'txtSearch' => $request->get('txtSearch'),
+                'limit' => $request->get('limit'),
+            ];
+            return $this->categoryArticleRepo->getDataTree($data);
+        } catch (Exception $e) {
+            report($e);
+            return [
+                'code' => '500',
+                'msg' => dd($e)
+            ];
+        }
     }
 
     public function update(Request $request , $id) 

@@ -15,22 +15,16 @@
     <meta name="keywords" content="@yield('keywords')">
     <meta name="description" content="@yield('description')">
     <meta name="robots" content="@yield('robots')">
-    <meta name="revisit-after" content="@yield('revisit-after')">
-    <meta name="coverage" content="@yield('coverage')">
-    <meta name="distribution" content="@yield('distribution')">
-    <meta name="title" content="@yield('title')">
     <meta name="author" content="@yield('author')">
     <meta name="url" content="@yield('url')">
     <meta name="og_image" content="@yield('og_image')">
-    <meta name="og_secureImage" content="@yield('og_secureImage')">
-    <meta name="og_imageAlt" content="@yield('og_imageAlt')">
-    <meta name="og_imageType" content="@yield('og_imageType')">
     <meta name="rating" content="@yield('rating')">
     <meta property=”og:title” content="@yield('”og:title')">
     <meta property="og:description" content="@yield('og:description')">
     <meta property=”og:type” content="@yield('”og:type')">
     <meta property="og:locale" content="@yield('og:locale')">
     <meta property="og:sitename" content="@yield('og:sitename')">
+    <meta property="og:image" content="@yield('og:image')">
     <meta property="og:url" content="@yield('og:url')">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -37,6 +37,15 @@
                                     <span class="text-danger" v-for="item in arrErrors.slug">* @{{ item }}</span>
                                 </p>
                             </div>
+                            <div class="form-group">
+                                <label for="slug-categoty" class="col-form-label">Slug:</label>
+                                <select v-model="category_article.parent_id" class="custom-select custom-select-sm form-control form-control-sm">
+                                    <option :value="item.id" v-for="item in arrCategorieTrees">@{{ item.level }} @{{ item.title}}</option>
+                                </select>
+                                <p v-if="arrErrors.slug">
+                                    <span class="text-danger" v-for="item in arrErrors.slug">* @{{ item }}</span>
+                                </p>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -9,5 +9,6 @@
     "/js/dashboard.js": "/js/dashboard.js",
     "/js/footer.js": "/js/footer.js",
     "/js/header.js": "/js/header.js",
-    "/js/home.js": "/js/home.js"
+    "/js/home.js": "/js/home.js",
+    "/js/social-network.js": "/js/social-network.js"
 }

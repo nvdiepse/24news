@@ -5,7 +5,7 @@ namespace App\Repo;
 use App\Models\CategoryArticle;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryArticleRepo
+class CategoryRepo
 {
     public function getAll($data = null)
     {

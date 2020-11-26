@@ -109,6 +109,7 @@
                                         </td>
                                         <td class="sorting_1"> <a @click="update(item.id)">@{{ item.title }}</a></td>
                                         <td class="sorting_1">@{{ item.slug }}</td>
+                                        <td class="sorting_1">@{{ item.parent_id }}</td>
                                     </tr>
                                 </tbody>
                             </table>

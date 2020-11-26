@@ -21,6 +21,30 @@ class ArticleRepo
         return $query->paginate($data['limit']);
     }
 
+    public function getTopStory()
+    {
+        $query = Article::query();
+        $query->join('users', 'users.id', '=', 'news.author');
+        $query->join('category_article', 'category_article.id', '=', 'news.category_id');
+
+        $query->select('news.*', 'users.name as __user_name','category_article.title as __category_title');
+        $query->where('news.top_story','=',true);
+        $query->orderBy('news.id', 'desc');
+        return $query->first();
+    }
+
+    public function getNewTrending()
+    {
+        $query = Article::query();
+        $query->join('users', 'users.id', '=', 'news.author');
+        $query->join('category_article', 'category_article.id', '=', 'news.category_id');
+
+        $query->select('news.*', 'users.name as __user_name','category_article.title as __category_title');
+        $query->where('news.is_trending','=',true);
+        $query->orderBy('news.id', 'desc');
+        return $query->limit(4);
+    }
+
     public function findById($id)
     {
         return Article::query()->find($id);

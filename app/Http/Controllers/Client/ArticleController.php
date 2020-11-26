@@ -55,11 +55,24 @@ class ArticleController extends Controller
             report($e);
             return [
                 'code' => 500,
-                'msg' => dd($e)
-                // 'msg' => __('msg.500')
+                 'msg' => __('msg.500')
             ];
         }
     }
+
+    public function getTopStory()
+    {
+        try {
+            return $this->articleRepo->getTopStory();
+        } catch (Exception $e) {
+            report($e);
+            return [
+                'code' => 500,
+                'msg' => __('msg.500')
+            ];
+        }
+    }
+
     public function getArticlesMostPopular(Request $request)
     {
         $domain = "http://" . $request->server('HTTP_HOST');
